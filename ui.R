@@ -18,6 +18,10 @@ shinyUI(
                  menuSubItem("2015",tabName = "2015"),
                  menuSubItem("2015 IInd Sem",tabName = "20155"),
                  menuSubItem("2015 year",tabName = "201555")),
+        menuItem("2016",tabName = "Data11",icon = icon("sun-o"),
+                 menuSubItem("2016",tabName = "2016"),
+                 menuSubItem("2016 IInd Sem",tabName = "20166"),
+                 menuSubItem("2016 year",tabName = "201666")),
         menuItem("Chart",tabName = "box",icon=icon("line-chart"))
       )
     ) ,
@@ -42,8 +46,16 @@ shinyUI(
           tabName = "20155",plotlyOutput("plot11") ,h3("2015 IInd Sem",align="center")),
         tabItem(
           tabName = "201555",plotlyOutput("plot9"),h3("2015 Year",align="center") ),
+        tabItem(
+          tabName = "2016",plotlyOutput("plot12"), h3("2016",align="center") ),
+        tabItem(
+          tabName = "20166",plotlyOutput("plot13") ,h3("2016 IInd Sem",align="center")),
+        tabItem(
+          tabName = "201666",plotlyOutput("plot14"),h3("2016 Year",align="center") ),
         tabItem(tabName = "box" ,
-                fluidRow(valueBoxOutput("max1",width = 3),valueBoxOutput("min1",width = 3),valueBoxOutput("mean1",width = 4) ),selectInput("sel","Select One",choices = colnames(IInd[,c(5:23,25:27,29:53)])),
+                fluidRow(valueBoxOutput("max1",width = 3),valueBoxOutput("max11",width = 3),valueBoxOutput("max111",width = 3) ),
+                fluidRow(valueBoxOutput("min1",width=3),valueBoxOutput("min11",width=3),valueBoxOutput("min111",width=3) ), 
+                fluidRow(valueBoxOutput("mean1",width=3),valueBoxOutput("mean11",width=3),valueBoxOutput("mean111",width=3) ),selectInput("sel","Select One",choices = colnames(IInd[,c(5:23,25:27,29:53)])),
                 fluidRow(box(title = "Mean MEdian MOde"
                              
                              ,
