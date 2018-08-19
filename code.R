@@ -37,6 +37,7 @@ gggg
 library(plotly)
 library(ggplot2)
 Year<-g$Year
+Year
 ggf<-IInd$Year
 length(ggf) 
 length(IInd$OS_INT)
@@ -61,6 +62,54 @@ View(IInd)
 sub1<-subset(IInd,Year=='2013')
 sub2<-subset(IInd,Year=='2014')
 sub3<-subset(IInd,Year=='2015')
+sub4<-subset(IInd_2016,YEAR=='2016')
+su<-sub4[,c(6:19)]
+su1<-names(su[,c(1:14)])
+fac<-factor(su1)
+ma<-lapply(1:14,function(i){
+  max(su[,i])
+})
+maxx<-lapply(1:14,function(i){
+  min(su[,i])
+} )
+data.6<-data.frame(fac,ma,maxx)
+plo<-plot_ly(x=~fac,y=ma,type = 'bar',name='Max'
+)%>%add_trace(y=~maxx,name='Min'
+)%>%layout(xaxis=list(title='2016'),yaxis=list(title='value'),barmode='group')
+plo
+
+su11<-sub4[,c(21:34)]
+View(su11)
+su12<-names(su11[,c(1:14)])
+su1
+fac1<-factor(su12)
+ma1<-lapply(1:14,function(i){
+  max(su11[,i])
+})
+maxx1<-lapply(1:14,function(i){
+  min(su11[,i])
+} )
+data.7<-data.frame(fac1,ma1,maxx1)
+plo1<-plot_ly(x=~fac1,y=ma1,type = 'bar',name='Max'
+)%>%add_trace(y=~maxx1,name='Min'
+)%>%layout(xaxis=list(title='2016'),yaxis=list(title='value'),barmode='group')
+plo1
+
+su111<-sub4[,c(6:14,21:34)]
+View(su111)
+su112<-names(su111[,c(1:23)])
+fac11<-factor(su112)
+ma11<-lapply(1:23,function(i){
+  max(su111[,i])
+} )
+maxx11<-lapply(1:23,function(i){
+  min(su111[,i])
+} )
+data.8<-data.frame(fac11,ma11,maxx11)
+plo11<-plot_ly(x=~fac11,y=ma11,type = 'bar',name='Max'
+)%>%add_trace(y=~maxx11,name='Min'
+)%>%layout(xaxis=list(title='2016'),yaxis=list(title='value'),barmode='group')
+plo11
 
 b1<-sub1[,c(5:11,13:19,21,23,29:35,37:43,45)]
 b2<-names(b1[,c(1:31)])
